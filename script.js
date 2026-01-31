@@ -33,14 +33,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Intersection Observer for fade-in animations
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -80px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            // Add staggered delay for grouped elements
+            const delay = index * 100;
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, delay);
         }
     });
 }, observerOptions);
@@ -49,6 +53,24 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.fade-in-up').forEach(element => {
     observer.observe(element);
 });
+
+// Add stagger animation to card grids
+const addStaggerToCards = () => {
+    const cardContainers = [
+        '.mission-grid',
+        '.involvement-grid',
+        '.impact-comparison'
+    ];
+    
+    cardContainers.forEach(container => {
+        const cards = document.querySelectorAll(`${container} > *`);
+        cards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.15}s`;
+        });
+    });
+};
+
+document.addEventListener('DOMContentLoaded', addStaggerToCards);
 
 // Navbar background change on scroll
 const navbar = document.querySelector('.navbar');
@@ -85,14 +107,7 @@ const addStaggerEffect = () => {
 // Initialize stagger effect on page load
 document.addEventListener('DOMContentLoaded', addStaggerEffect);
 
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-});
+// Removed parallax effect to prevent overlap issues
 
 // Add hover effect to stats
 const statNumber = document.querySelector('.stat-number');
@@ -120,6 +135,99 @@ if (statNumber) {
     }, { threshold: 0.5 });
 
     statObserver.observe(statNumber);
+}
+
+// ===========================
+// Hero Mouse-Responsive Gradient
+// ===========================
+
+// Detect if device is touch-enabled
+const isTouchDevice = () => {
+    return (('ontouchstart' in window) ||
+            (navigator.maxTouchPoints > 0) ||
+            (navigator.msMaxTouchPoints > 0));
+};
+
+// Throttle function for performance
+const throttle = (func, limit) => {
+    let inThrottle;
+    return function(...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+};
+
+// ===========================
+// Hero Gradient Splotch Effect
+// ===========================
+// Gradient splotch is now purely CSS-based (no JavaScript needed)
+// It fades in on hover at a fixed position
+
+// ===========================
+// Scroll Indicator
+// ===========================
+
+const scrollIndicator = document.querySelector('.scroll-indicator');
+let hasScrolled = false;
+
+if (scrollIndicator) {
+    // Hide scroll indicator after scrolling
+    const handleScroll = () => {
+        if (!hasScrolled && window.pageYOffset > 100) {
+            hasScrolled = true;
+            scrollIndicator.classList.add('hidden');
+        }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    // Smooth scroll on click
+    scrollIndicator.addEventListener('click', () => {
+        const missionSection = document.querySelector('#mission');
+        if (missionSection) {
+            missionSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+}
+
+// ===========================
+// Yellow Highlighter Animation
+// ===========================
+
+const highlightWords = document.querySelectorAll('.highlight-word');
+let highlightsTriggered = false;
+
+if (highlightWords.length > 0) {
+    const highlightObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !highlightsTriggered) {
+                highlightsTriggered = true;
+                
+                // Trigger each highlight sequentially
+                highlightWords.forEach((word, index) => {
+                    const delay = parseInt(word.getAttribute('data-delay')) || 0;
+                    setTimeout(() => {
+                        word.classList.add('highlighted');
+                    }, delay * 400); // 400ms between each highlight
+                });
+                
+                // Unobserve after triggering
+                highlightObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5,
+        rootMargin: '0px'
+    });
+    
+    // Observe the parent callout box
+    const calloutBox = document.querySelector('.callout-box');
+    if (calloutBox) {
+        highlightObserver.observe(calloutBox);
+    }
 }
 
 // Console message
