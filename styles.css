@@ -462,9 +462,9 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(
         120deg,
         transparent 20%,
-        rgba(255, 255, 255, 0.1) 40%,
-        rgba(255, 255, 255, 0.4) 50%,
-        rgba(255, 255, 255, 0.1) 60%,
+        rgba(255, 255, 255, 0.12) 40%,
+        rgba(255, 255, 255, 0.48) 50%,
+        rgba(255, 255, 255, 0.12) 60%,
         transparent 80%
     );
     transform: translateX(-100%) translateY(-100%) rotate(30deg);
@@ -551,11 +551,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-logo {
-    transform: translateY(-130px) scale(1.2);
+    transform: translateY(-110px) scale(1.4);
 }
 
 .hero-logo.logo-hovered {
-    transform: translateY(-130px) scale(1.296);
+    transform: translateY(-110px) scale(1.512);
     filter: 
         drop-shadow(0 20px 50px rgba(0, 0, 0, 0.5))
         drop-shadow(0 0 40px rgba(93, 212, 217, 0.4))
@@ -814,11 +814,11 @@ h1, h2, h3, h4, h5, h6 {
     
     .hero-logo {
         max-width: 360px;
-        transform: translateY(-80px) scale(1.2);
+        transform: translateY(-60px) scale(1.4);
     }
 
     .hero-logo.logo-hovered {
-        transform: translateY(-80px) scale(1.296);
+        transform: translateY(-60px) scale(1.512);
     }
     
     .hero-logo-container {
@@ -856,11 +856,11 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 480px) {
     .hero-logo {
         max-width: 288px;
-        transform: translateY(-50px) scale(1.2);
+        transform: translateY(-30px) scale(1.4);
     }
 
     .hero-logo.logo-hovered {
-        transform: translateY(-50px) scale(1.296);
+        transform: translateY(-30px) scale(1.512);
     }
     
     .hero-subtitle {
