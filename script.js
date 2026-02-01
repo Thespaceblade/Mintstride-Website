@@ -1,3 +1,25 @@
+// Hero dot grid - per-dot diagonal wave animation
+document.addEventListener('DOMContentLoaded', () => {
+    const hero = document.querySelector('.hero');
+    const heroDotGrid = document.querySelector('.hero-dot-grid');
+    if (hero && heroDotGrid) {
+        const dotSize = 20;
+        const rect = hero.getBoundingClientRect();
+        const cols = Math.ceil(rect.width / dotSize) + 2;
+        const rows = Math.ceil(rect.height / dotSize) + 2;
+        heroDotGrid.style.setProperty('--dot-cols', cols);
+        heroDotGrid.style.setProperty('--dot-rows', rows);
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < cols; col++) {
+                const dot = document.createElement('div');
+                dot.className = 'hero-dot';
+                dot.style.setProperty('--wave-phase', col - row + cols);
+                heroDotGrid.appendChild(dot);
+            }
+        }
+    }
+});
+
 // Hero logo hover - only grow/shimmer when mouse is directly on the icon
 const heroLogo = document.querySelector('.hero-logo');
 if (heroLogo) {
@@ -178,19 +200,8 @@ const throttle = (func, limit) => {
 // ===========================
 
 const scrollIndicator = document.querySelector('.scroll-indicator');
-let hasScrolled = false;
 
 if (scrollIndicator) {
-    // Hide scroll indicator after scrolling
-    const handleScroll = () => {
-        if (!hasScrolled && window.pageYOffset > 100) {
-            hasScrolled = true;
-            scrollIndicator.classList.add('hidden');
-        }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    
     // Smooth scroll on click
     scrollIndicator.addEventListener('click', () => {
         const missionSection = document.querySelector('#mission');
