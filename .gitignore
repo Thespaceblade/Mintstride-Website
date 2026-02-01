@@ -29,6 +29,9 @@ Temporary Items
 *.swo
 *~
 
+# All Files - ignore non-images only (PDFs, etc.)
+All Files/*.pdf
+
 # Logs
 *.log
 npm-debug.log*
