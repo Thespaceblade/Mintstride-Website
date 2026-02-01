@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 heroDotGrid.appendChild(dot);
             }
         }
+        requestAnimationFrame(() => {
+            heroDotGrid.style.opacity = '0.5';
+        });
     }
 });
 

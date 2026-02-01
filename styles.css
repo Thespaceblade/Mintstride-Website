@@ -145,7 +145,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     z-index: 1000;
     transition: all 0.3s ease;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .navbar::before {
@@ -177,7 +177,7 @@ h1, h2, h3, h4, h5, h6 {
 .logo {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 16px;
     text-decoration: none;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     padding: 0 4px;
@@ -194,8 +194,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo-img {
-    height: 135px;
+    height: 90px;
     width: auto;
+    display: block;
+    object-fit: contain;
+    transform: scale(1.5);
+    transform-origin: left center;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -205,6 +209,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--white);
     letter-spacing: 2px;
     transition: all 0.3s ease;
+    margin-left: 10px;
 }
 
 .nav-menu {
@@ -344,7 +349,8 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-rows: repeat(var(--dot-rows), 20px);
     gap: 0;
     padding: 10px;
-    opacity: 0.5;
+    opacity: 0;
+    transition: opacity 0.25s ease;
 }
 
 .hero-dot {
@@ -492,12 +498,13 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 2;
     max-width: 1200px;
     padding: 0 20px;
+    transform: translateY(40px);
 }
 
 .hero-logo-container {
     position: relative;
     display: inline-block;
-    animation: fadeInUp 1s ease, float-logo 6s ease-in-out infinite;
+    animation: float-logo 6s ease-in-out infinite;
     cursor: pointer;
 }
 
@@ -544,11 +551,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-logo {
-    transform: translateY(-100px) scale(1);
+    transform: translateY(-130px) scale(1.2);
 }
 
 .hero-logo.logo-hovered {
-    transform: translateY(-100px) scale(1.08);
+    transform: translateY(-130px) scale(1.296);
     filter: 
         drop-shadow(0 20px 50px rgba(0, 0, 0, 0.5))
         drop-shadow(0 0 40px rgba(93, 212, 217, 0.4))
@@ -557,7 +564,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-subtitle {
     font-size: 48px;
-    margin-top: 50px;
+    margin-top: 0;
     margin-bottom: 15px;
     font-weight: 700;
     position: relative;
@@ -567,14 +574,14 @@ h1, h2, h3, h4, h5, h6 {
     white-space: nowrap;
     letter-spacing: 2px;
     color: #ffffff;
-    animation: fadeInUp 1s ease 0.5s backwards;
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     text-shadow: 0 2px 15px rgba(0, 0, 0, 0.25), 0 0 20px rgba(93, 212, 217, 0.15);
     cursor: default;
+    transform: translateY(50px);
 }
 
 .hero-subtitle:hover {
-    transform: scale(1.03);
+    transform: translateY(50px) scale(1.03);
     letter-spacing: 4px;
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 25px rgba(93, 212, 217, 0.2);
 }
@@ -603,10 +610,10 @@ h1, h2, h3, h4, h5, h6 {
 /* Scroll Indicator */
 .scroll-indicator {
     position: relative;
-    margin-top: 30px;
+    margin-top: 15px;
+    transform: translateY(50px);
     z-index: 10;
-    opacity: 0;
-    animation: scrollArrowFadeIn 1s ease 1.5s forwards, bounce 2s ease-in-out 2.5s infinite;
+    opacity: 1;
     transition: opacity 1s ease;
 }
 
@@ -626,12 +633,25 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+.scroll-chevron-bounce {
+    animation: bounce-down 2s ease-in-out infinite;
+}
+
 .scroll-chevron {
     width: 30px;
     height: 30px;
     border-left: 5px solid rgba(255, 255, 255, 0.9);
     border-bottom: 5px solid rgba(255, 255, 255, 0.9);
     transform: rotate(-45deg);
+}
+
+@keyframes bounce-down {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
 }
 
 @keyframes bounce {
@@ -794,6 +814,11 @@ h1, h2, h3, h4, h5, h6 {
     
     .hero-logo {
         max-width: 360px;
+        transform: translateY(-80px) scale(1.2);
+    }
+
+    .hero-logo.logo-hovered {
+        transform: translateY(-80px) scale(1.296);
     }
     
     .hero-logo-container {
@@ -831,6 +856,11 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 480px) {
     .hero-logo {
         max-width: 288px;
+        transform: translateY(-50px) scale(1.2);
+    }
+
+    .hero-logo.logo-hovered {
+        transform: translateY(-50px) scale(1.296);
     }
     
     .hero-subtitle {
@@ -891,9 +921,10 @@ h1, h2, h3, h4, h5, h6 {
     
     .hero-logo.logo-hovered,
     .hero:hover .hero-subtitle {
-        transform: none;
+        transform: translateY(50px);
     }
     
+    .scroll-chevron-bounce,
     .scroll-chevron {
         animation: none !important;
     }
@@ -2027,25 +2058,69 @@ section {
 }
 
 @media (max-width: 768px) {
+    /* ===== NAVBAR - Logo left, MINTSTRIDE center, hamburger right ===== */
+    .nav-container {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0;
+    }
+
+    .logo-img {
+        height: 48px;
+        transform: scale(1);
+    }
+
+    .logo-text {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 22px;
+        letter-spacing: 2px;
+    }
+
+    .hamburger {
+        justify-self: end;
+    }
+
+    /* ===== MOBILE MENU - Compact, slides from right ===== */
     .nav-menu {
         position: fixed;
-        left: -100%;
-        top: 80px;
+        top: 64px;
+        right: 0;
+        left: auto;
         flex-direction: column;
         background-color: var(--primary-green);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.2);
-        padding: 40px 0;
+        width: 200px;
+        text-align: left;
+        transition: transform 0.3s ease;
+        transform: translateX(100%);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        padding: 12px 0;
+        gap: 0;
+        border-radius: 0 0 0 8px;
+        z-index: 999;
+    }
+
+    .nav-menu li {
+        margin: 0;
     }
 
     .nav-menu a {
+        display: block;
+        padding: 10px 16px;
+        font-size: 16px;
         color: var(--white);
     }
 
     .nav-menu a::after {
-        background-color: var(--white);
+        display: none;
     }
 
     .nav-menu a:hover {
@@ -2053,72 +2128,284 @@ section {
     }
 
     .nav-menu .btn-contact {
-        background-color: var(--white);
-        color: var(--primary-green) !important;
+        background-color: transparent;
+        color: var(--white) !important;
+        margin: 8px 12px 4px;
+        text-align: center;
     }
 
     .nav-menu .btn-contact:hover,
     .nav-menu a.btn-contact:hover {
-        background-color: var(--light-grey) !important;
+        background-color: var(--white) !important;
         color: var(--primary-green) !important;
     }
 
     .nav-menu.active {
-        left: 0;
+        transform: translateX(0);
     }
 
     .hamburger {
         display: flex;
     }
 
-    .hero-logo {
-        max-width: 324px;
+    /* ===== HERO - Compact with larger logo ===== */
+    .hero {
+        min-height: 340px;
+        height: auto;
+        padding: 16px 0 24px;
     }
-    
+
+    .hero-content {
+        padding: 0 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 6px;
+    }
+
+    .hero-logo-container {
+        animation: none;
+        margin: 0;
+    }
+
+    .hero-logo {
+        max-width: 330px;
+        transform: translateY(-30px) scale(1);
+    }
+
+    .hero-logo.logo-hovered {
+        transform: translateY(-30px) scale(1.05);
+    }
+
+    .hero-copy-overlay {
+        position: static;
+        transform: none;
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .hero-subtitle {
-        font-size: 28px;
+        display: none !important;
     }
 
     .hero-buttons {
         flex-direction: column;
         align-items: center;
+        margin-top: 4px;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    /* Disable heavy effects on mobile for performance */
+    .hero-gradient-splotch,
+    .hero-dot-grid {
+        display: none;
+    }
+
+    .particle-3,
+    .particle-5 {
+        opacity: 0.5;
+    }
+
+    /* ===== SECTIONS - Prominent titles, clear hierarchy ===== */
+    section {
+        padding: 50px 0;
     }
 
     .section-title {
-        font-size: 36px;
+        font-size: 40px;
+        word-break: normal;
+        overflow-wrap: break-word;
+        letter-spacing: 2px;
+        margin-bottom: 24px;
     }
 
-    .problem-content,
-    .impact-comparison {
+    .section-intro {
+        font-size: 15px;
+        margin: 0 auto 30px;
+        padding: 14px;
+    }
+
+    /* ===== PROBLEM SECTION - Remove boxes, centered text ===== */
+    .problem-content {
         grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 30px;
+    }
+
+    .problem-stat {
+        background-color: transparent;
+        padding: 16px;
+        text-align: center;
+    }
+
+    /* ===== DISABLE ALL HOVER EFFECTS ON MOBILE ===== */
+    .logo:hover,
+    .logo:hover .logo-text,
+    .nav-menu a:hover,
+    .btn-contact:hover,
+    .nav-menu a.btn-contact:hover,
+    .hero-logo.logo-hovered,
+    .hero-subtitle:hover,
+    .section-title:hover,
+    .section-intro:hover,
+    .problem-stat:hover,
+    .problem-stat:hover .stat-number,
+    .problem-stat:hover .stat-text,
+    .problem-description:hover,
+    .problem-description:hover .large-text,
+    .problem-description:hover p,
+    .callout-box:hover,
+    .callout-box:hover h2,
+    .callout-box:hover h3,
+    .callout-box:hover p,
+    .callout-box:hover::before,
+    .callout-box:hover::after,
+    .mission-card:hover,
+    .mission-card:hover .card-icon,
+    .mission-card:hover h3,
+    .mission-card:hover p,
+    .impact-column:hover,
+    .impact-column.negative:hover,
+    .impact-column.positive:hover::after,
+    .impact-column.negative ul.impact-list li:hover,
+    .impact-column.negative ul.impact-list li:hover .impact-bullet,
+    .impact-column.negative ul.impact-list li:hover .impact-text,
+    .impact-column.positive ul.impact-list li:hover,
+    .impact-column.positive ul.impact-list li:hover .impact-bullet,
+    .impact-column.positive ul.impact-list li:hover .impact-text,
+    .impact-tagline:hover,
+    .involvement-card:hover,
+    .involvement-card:hover::after,
+    .involvement-card:hover p,
+    .social-icon:hover,
+    .contact-intro:hover,
+    .contact-section .btn-primary:hover,
+    .footer-logo-img:hover,
+    .footer-logo p:hover,
+    .footer-social-icon:hover,
+    .footer-made-by:hover,
+    .footer-made-by:hover::before,
+    .footer-made-by:hover .footer-made-by-arrow,
+    .highlight-word:hover {
+        transform: none !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        background-color: inherit;
+        color: inherit;
+        letter-spacing: inherit;
+        opacity: 1;
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    .problem-stat:hover {
+        background-color: transparent;
     }
 
     .stat-number {
-        font-size: 80px;
+        font-size: 72px;
     }
 
-    .problem-stat,
+    .stat-text {
+        font-size: 17px;
+    }
+
     .problem-description {
-        padding: 30px 20px;
+        background-color: transparent;
+        padding: 16px;
+        text-align: center;
+    }
+
+    .problem-description:hover {
+        background-color: transparent;
+    }
+
+    .large-text {
+        font-size: 19px;
+    }
+
+    .problem-description p {
+        font-size: 15px;
     }
 
     .callout-box {
-        padding: 40px 30px;
+        padding: 30px 20px;
     }
 
     .callout-box h2 {
-        font-size: 32px;
+        font-size: 22px;
     }
 
-    .mission-grid,
-    .involvement-grid {
+    .callout-box h3 {
+        font-size: 17px;
+    }
+
+    .callout-box .emphasis {
+        font-size: 17px;
+    }
+
+    /* ===== IMPACT SECTION ===== */
+    .impact-comparison {
         grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .impact-column {
+        padding: 24px;
+    }
+
+    .impact-column h3 {
+        font-size: 19px;
+    }
+
+    .impact-list li {
+        font-size: 14px;
     }
 
     .impact-tagline {
-        font-size: 24px;
+        font-size: 19px;
     }
 
+    /* ===== MISSION & INVOLVEMENT - Compact cards ===== */
+    .mission-grid,
+    .involvement-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .mission-card {
+        padding: 24px 20px;
+    }
+
+    .mission-card h3 {
+        font-size: 18px;
+    }
+
+    .mission-card p {
+        font-size: 13px;
+    }
+
+    .card-icon {
+        width: 48px;
+        height: 48px;
+        margin: 0 auto 12px;
+    }
+
+    .involvement-card {
+        padding: 30px 24px;
+    }
+
+    /* ===== FOOTER ===== */
     .footer-content {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -2147,33 +2434,217 @@ section {
         padding: 6px 12px;
         font-size: 9px;
     }
+
+    /* ===== CONTACT SECTION - Fix email button overflow ===== */
+    .contact-intro {
+        font-size: 16px;
+        margin-bottom: 24px;
+        padding: 12px;
+    }
+
+    .contact-section .btn-primary {
+        font-size: 14px;
+        padding: 12px 16px;
+        word-break: break-all;
+        max-width: 90%;
+        white-space: normal;
+        line-height: 1.3;
+    }
+
+    /* ===== SCROLL OFFSETS ===== */
+    #mission,
+    #impact,
+    #get-involved,
+    #contact {
+        scroll-margin-top: 70px;
+    }
 }
 
 @media (max-width: 480px) {
+    /* ===== SAFE AREAS for notched devices ===== */
+    .container {
+        padding-left: max(16px, env(safe-area-inset-left));
+        padding-right: max(16px, env(safe-area-inset-right));
+    }
+
+    /* ===== NAVBAR ===== */
+    .logo-img {
+        height: 40px;
+    }
+
+    .logo-text {
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+
+    /* ===== HERO - Ultra compact with big logo ===== */
+    .hero {
+        min-height: 300px;
+        height: auto;
+        padding: 12px 0 20px;
+    }
+
+    .hero-content {
+        padding: 0 12px;
+        gap: 4px;
+    }
+
     .hero-logo {
-        max-width: 252px;
+        max-width: 270px;
+        transform: translateY(-25px) scale(1);
+    }
+
+    .hero-logo.logo-hovered {
+        transform: translateY(-25px) scale(1.05);
+    }
+
+    .hero-copy-overlay {
+        margin-top: 0;
+    }
+
+    .hero-subtitle {
+        display: none !important;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    /* Hide most particles on mobile for performance */
+    .particle-2,
+    .particle-3,
+    .particle-4,
+    .particle-5 {
+        display: none;
+    }
+
+    .particle-1 {
+        opacity: 0.3;
+    }
+
+    /* ===== SECTIONS - Extra prominent titles ===== */
+    section {
+        padding: 40px 0;
     }
 
     .section-title {
-        font-size: 28px;
+        font-size: 32px;
+        letter-spacing: 1.5px;
+        margin-bottom: 20px;
+    }
+
+    .section-intro {
+        font-size: 14px;
+        margin: 0 auto 24px;
+        padding: 12px;
+    }
+
+    /* ===== PROBLEM SECTION ===== */
+    .stat-number {
+        font-size: 60px;
+    }
+
+    .stat-text {
+        font-size: 15px;
+    }
+
+    .large-text {
+        font-size: 17px;
+    }
+
+    .problem-description p {
+        font-size: 14px;
+    }
+
+    .callout-box {
+        padding: 24px 16px;
     }
 
     .callout-box h2 {
-        font-size: 24px;
+        font-size: 19px;
     }
 
+    .callout-box h3 {
+        font-size: 15px;
+    }
+
+    .callout-box .emphasis {
+        font-size: 15px;
+    }
+
+    /* ===== MISSION & INVOLVEMENT ===== */
+    .mission-card {
+        padding: 20px 16px;
+    }
+
+    .mission-card h3 {
+        font-size: 17px;
+    }
+
+    .mission-card p {
+        font-size: 12px;
+    }
+
+    .card-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .involvement-card {
+        padding: 24px 20px;
+    }
+
+    .involvement-card h3 {
+        font-size: 18px;
+    }
+
+    .involvement-card p {
+        font-size: 13px;
+    }
+
+    /* ===== IMPACT ===== */
+    .impact-column {
+        padding: 20px;
+    }
+
+    .impact-column h3 {
+        font-size: 17px;
+    }
+
+    .impact-list li {
+        font-size: 13px;
+    }
+
+    .impact-tagline {
+        font-size: 17px;
+    }
+
+    /* ===== CONTACT SECTION - Email button ===== */
+    .contact-intro {
+        font-size: 15px;
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+
+    .contact-section .btn-primary {
+        font-size: 13px;
+        padding: 10px 12px;
+        max-width: 85%;
+    }
+
+    /* ===== FOOTER ===== */
     .footer-logo-img {
         height: 48px;
     }
 
     .footer-social-icon {
-        width: 48px;
-        height: 48px;
+        width: 44px;
+        height: 44px;
     }
 
     .footer-social-icon svg {
-        width: 24px;
-        height: 24px;
+        width: 22px;
+        height: 22px;
     }
 
     .footer-logo p {
