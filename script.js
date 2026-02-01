@@ -1,3 +1,10 @@
+// Hero logo hover - only grow/shimmer when mouse is directly on the icon
+const heroLogo = document.querySelector('.hero-logo');
+if (heroLogo) {
+    heroLogo.addEventListener('mouseenter', () => heroLogo.classList.add('logo-hovered'));
+    heroLogo.addEventListener('mouseleave', () => heroLogo.classList.remove('logo-hovered'));
+}
+
 // Mobile menu toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
