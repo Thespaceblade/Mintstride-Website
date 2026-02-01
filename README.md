@@ -1,38 +1,27 @@
 # MINTSTRIDE
 
-**Expanding access to oral health for communities that need it most.**
+**Fresh Habits. Forward Strides.**
+
+Expanding access to oral health for communities that need it most.
+
+---
 
 ## About
 
 MINTSTRIDE is a philanthropy-first dental initiative built to create community, deliver education, and expand access to oral health. We focus on preventive care, education, and reaching underserved communities through direct outreach and engagement.
 
-## Mission
+## The Problem
 
-We believe that early dental care changes everything. By providing:
-- **Dental supply distribution** to underserved communities
-- **Preventive education** through modern, engaging content
-- **Community building** that connects dental students and professionals
-- **Sustainable growth** from campus organization to established practices
+50% of children in the U.S. experience tooth decay by age 8. Dental cavities are the most prevalent chronic disease of childhood. Tooth decay is strongly linked to education, access, and socioeconomic status—but this issue is preventable.
 
-## Website
+## What We Do
 
-This repository hosts the MINTSTRIDE website, built with:
-- Clean, modern HTML5/CSS3
-- Responsive design for all devices
-- Smooth animations and interactions
-- Accessibility-first approach
+We believe that early dental care changes everything. MINTSTRIDE addresses the gap through:
 
-## Brand Colors
-
-- Primary Green: `#107c80`
-- Light Grey: `#efefef`
-- Black: `#000000`
-- White: `#ffffff`
-
-## Typography
-
-- **Headings**: Anton
-- **Body**: Montserrat, Poppins
+- **Dental supply distribution** — Getting oral care supplies to underserved communities
+- **Preventive education** — Modern, engaging content that teaches healthy habits
+- **Community building** — Connecting dental students and professionals
+- **Sustainable growth** — Growing from campus organization to established practice
 
 ## Connect With Us
 
@@ -40,19 +29,6 @@ This repository hosts the MINTSTRIDE website, built with:
 - **Instagram**: [@mintstride](https://instagram.com/mintstride)
 - **TikTok**: [@mintstride](https://tiktok.com/@mintstride)
 - **YouTube**: [@mintstridee](https://youtube.com/@mintstridee)
-
-## Deployment
-
-This site is configured for GitHub Pages. To deploy:
-
-1. Push this repository to GitHub
-2. Go to Settings > Pages
-3. Select the `main` branch as the source
-4. Your site will be live at `https://[username].github.io/[repo-name]`
-
-## Contributing
-
-This project was created by John and Riley. For questions about partnerships, funding, or getting involved, contact us at mintstrideorg@gmail.com.
 
 ---
 
