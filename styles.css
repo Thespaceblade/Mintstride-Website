@@ -1601,7 +1601,7 @@ section {
    Get Involved Section
    =========================== */
 .get-involved-section {
-    background-color: var(--white);
+    background-color: var(--light-grey);
 }
 
 .involvement-grid {
