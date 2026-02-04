@@ -29,6 +29,7 @@ We believe that early dental care changes everything. MINTSTRIDE addresses the g
 - **Instagram**: [@mintstride](https://instagram.com/mintstride)
 - **TikTok**: [@mintstride](https://tiktok.com/@mintstride)
 - **YouTube**: [@mintstridee](https://youtube.com/@mintstridee)
+- **Facebook**: [@mintstride](https://www.facebook.com/profile.php?id=61587177730203)
 
 ---
 
