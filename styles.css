@@ -1614,7 +1614,8 @@ section {
 .involvement-card {
     background-color: var(--light-grey);
     padding: 50px 40px;
-    border-radius: 8px;
+    border-radius: 16px;
+    border: 2px solid rgba(16, 124, 128, 0.15);
     text-align: center;
     transition: all 0.3s ease;
     position: relative;
@@ -1639,6 +1640,7 @@ section {
 .involvement-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 40px rgba(16, 124, 128, 0.2);
+    border-color: var(--primary-green);
 }
 
 .involvement-card h3 {
@@ -1661,15 +1663,15 @@ section {
 
 .social-links {
     display: flex;
-    gap: 25px;
+    gap: 18px;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     margin-top: 20px;
 }
 
 .social-icon {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1679,6 +1681,7 @@ section {
     transition: transform 0.35s ease-out, background-color 0.35s ease-out, box-shadow 0.35s ease-out;
     position: relative;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .social-icon::before {
@@ -1698,8 +1701,8 @@ section {
 }
 
 .social-icon svg {
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
     position: relative;
     z-index: 1;
 }
@@ -1843,14 +1846,14 @@ section {
 
 .footer-social-icons {
     display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
+    gap: 12px;
+    flex-wrap: nowrap;
     justify-content: center;
 }
 
 .footer-social-icon {
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1858,11 +1861,12 @@ section {
     color: var(--white);
     border-radius: 50%;
     transition: all 0.3s ease;
+    flex-shrink: 0;
 }
 
 .footer-social-icon svg {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
 }
 
 .footer-social-icon:hover {
@@ -2434,6 +2438,27 @@ section {
         justify-content: center;
         padding: 6px 12px;
         font-size: 9px;
+    }
+
+    /* ===== SOCIAL ICONS - Allow wrapping on mobile ===== */
+    .social-links {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .social-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .social-icon svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .footer-social-icons {
+        flex-wrap: wrap;
+        gap: 10px;
     }
 
     /* ===== CONTACT SECTION - Fix email button overflow ===== */
