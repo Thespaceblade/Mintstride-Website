@@ -1092,6 +1092,7 @@ section {
 /* Scroll offset so nav links align section titles below sticky header */
 #mission,
 #impact,
+#about-us,
 #get-involved,
 #contact {
     scroll-margin-top: 85px;
@@ -2454,6 +2455,7 @@ section {
     /* ===== SCROLL OFFSETS ===== */
     #mission,
     #impact,
+    #about-us,
     #get-involved,
     #contact {
         scroll-margin-top: 70px;
@@ -2649,5 +2651,591 @@ section {
 
     .footer-logo p {
         font-size: 13px;
+    }
+}
+
+/* ===========================
+   About Us Page Styles
+   =========================== */
+.about-hero {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--hover-green) 100%);
+    color: var(--white);
+    padding: 120px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.about-hero-title {
+    font-size: 72px;
+    margin-bottom: 20px;
+    color: var(--white);
+    position: relative;
+    z-index: 1;
+}
+
+.about-hero-subtitle {
+    font-size: 24px;
+    font-weight: 400;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+}
+
+.our-story-section {
+    background-color: var(--white);
+    padding: 100px 0;
+}
+
+.story-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.story-text {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    color: var(--dark-grey);
+}
+
+.story-text:last-child {
+    margin-bottom: 0;
+}
+
+/* Team Section */
+.team-section {
+    background-color: var(--light-grey);
+    padding: 100px 0;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 60px;
+    margin-top: 60px;
+}
+
+.team-member-card {
+    background-color: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.team-member-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 40px rgba(16, 124, 128, 0.2);
+}
+
+.team-member-image-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.team-member-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.team-member-card:hover .team-member-image {
+    transform: scale(1.1);
+}
+
+.team-member-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(16, 124, 128, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.team-member-card:hover .team-member-overlay {
+    opacity: 1;
+}
+
+.team-member-info {
+    padding: 40px;
+}
+
+.team-member-name {
+    font-size: 36px;
+    color: var(--primary-green);
+    margin-bottom: 8px;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 1px;
+}
+
+.team-member-role {
+    font-size: 18px;
+    color: var(--dark-grey);
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.team-member-bio {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--dark-grey);
+}
+
+.team-member-bio p {
+    margin-bottom: 16px;
+}
+
+.team-member-bio p:last-child {
+    margin-bottom: 0;
+}
+
+/* Team Member Connect Section */
+.team-member-connect {
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 2px solid var(--light-grey);
+    text-align: center;
+}
+
+.connect-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark-grey);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.connect-icons {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.connect-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-grey);
+    color: var(--primary-green);
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    border: 2px solid transparent;
+}
+
+.connect-icon svg {
+    width: 32px;
+    height: 32px;
+    fill: var(--primary-green);
+    transition: fill 0.3s ease;
+}
+
+.connect-icon:hover {
+    background-color: var(--primary-green);
+    color: var(--white);
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 6px 20px rgba(16, 124, 128, 0.3);
+    border-color: var(--primary-green);
+}
+
+.connect-icon:hover svg {
+    fill: var(--white);
+}
+
+/* Mission & Values Section */
+.mission-values-section {
+    background-color: var(--white);
+    padding: 100px 0;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.value-card {
+    background-color: var(--light-grey);
+    padding: 40px 30px;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid transparent;
+}
+
+.value-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(16, 124, 128, 0.15);
+    border: 2px solid var(--primary-green);
+    background-color: var(--white);
+}
+
+.value-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-green);
+    border-radius: 50%;
+    color: var(--white);
+    transition: all 0.4s ease;
+}
+
+.value-icon svg {
+    width: 32px;
+    height: 32px;
+    fill: var(--white);
+}
+
+.value-card:hover .value-icon {
+    transform: rotate(360deg) scale(1.1);
+    background-color: var(--hover-green);
+}
+
+.value-card h3 {
+    font-size: 24px;
+    color: var(--primary-green);
+    margin-bottom: 16px;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 1px;
+}
+
+.value-card p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--dark-grey);
+}
+
+/* About CTA Section */
+.about-cta-section {
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle, rgba(0, 0, 0, 0.15) 2px, transparent 2px);
+    background-size: 14px 14px;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.about-cta-section .section-title {
+    color: var(--white);
+    position: relative;
+    z-index: 1;
+}
+
+.cta-text {
+    font-size: 20px;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.about-cta-section .btn-secondary {
+    background-color: var(--white);
+    color: var(--primary-green);
+    border: 2px solid var(--white);
+}
+
+.about-cta-section .btn-secondary:hover {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+/* Mini About Us Section on Main Page */
+.mini-about-section {
+    background-color: var(--white);
+    padding: 100px 0;
+}
+
+.mini-about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.mini-about-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.mini-about-image-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+}
+
+.mini-about-image-wrapper:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(16, 124, 128, 0.2);
+}
+
+.mini-about-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.mini-about-image-wrapper:hover img {
+    transform: scale(1.1);
+}
+
+/* Main page: Riley image (second in row) - head level aligned with John */
+.mini-about-section .mini-about-image-wrapper:nth-child(2) img {
+    object-fit: cover;
+    object-position: center 68%;
+}
+
+/* Crop John image to show top portion */
+.img-crop-top {
+    object-position: center top;
+}
+
+/* Main page preview: John image 5% down from top */
+.img-crop-top-5 {
+    object-position: center 5%;
+}
+
+/* Crop Riley image: main page - aligned so head level matches John's */
+.img-crop-slightly-lower {
+    object-position: center 68%;
+}
+
+/* About page Riley: move up so ~10% of image is above top of crop */
+.img-crop-about-riley {
+    object-position: center 40%;
+}
+
+.mini-about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mini-about-text h2 {
+    font-size: 48px;
+    color: var(--primary-green);
+    margin-bottom: 24px;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 2px;
+}
+
+.mini-about-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--dark-grey);
+    margin-bottom: 32px;
+}
+
+.mini-about-link {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-green);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-right: 30px;
+}
+
+.mini-about-link::after {
+    content: '→';
+    position: absolute;
+    right: 0;
+    transition: transform 0.3s ease;
+}
+
+.mini-about-link:hover {
+    color: var(--hover-green);
+    transform: translateX(5px);
+}
+
+.mini-about-link:hover::after {
+    transform: translateX(5px);
+}
+
+/* Responsive Styles for About Us Page */
+@media (max-width: 1024px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .mini-about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .mini-about-images {
+        order: 2;
+    }
+    
+    .mini-about-text {
+        order: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        padding: 80px 0 60px;
+    }
+    
+    .about-hero-title {
+        font-size: 48px;
+    }
+    
+    .about-hero-subtitle {
+        font-size: 20px;
+    }
+    
+    .our-story-section,
+    .team-section,
+    .mission-values-section,
+    .about-cta-section {
+        padding: 60px 0;
+    }
+    
+    .team-grid {
+        gap: 40px;
+    }
+    
+    .team-member-image-container {
+        height: 300px;
+    }
+    
+    .team-member-info {
+        padding: 30px;
+    }
+    
+    .team-member-name {
+        font-size: 28px;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .mini-about-section {
+        padding: 60px 0;
+    }
+    
+    .mini-about-images {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .mini-about-text h2 {
+        font-size: 36px;
+    }
+    
+    .mini-about-text p {
+        font-size: 16px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero-title {
+        font-size: 36px;
+    }
+    
+    .about-hero-subtitle {
+        font-size: 18px;
+    }
+    
+    .story-text {
+        font-size: 16px;
+    }
+    
+    .team-member-image-container {
+        height: 250px;
+    }
+    
+    .team-member-info {
+        padding: 24px;
+    }
+    
+    .team-member-name {
+        font-size: 24px;
+    }
+    
+    .team-member-bio {
+        font-size: 14px;
+    }
+    
+    .mini-about-text h2 {
+        font-size: 28px;
+    }
+    
+    .mini-about-text p {
+        font-size: 15px;
     }
 }
