@@ -1663,15 +1663,15 @@ section {
 
 .social-links {
     display: flex;
-    gap: 18px;
+    gap: 16px;
     justify-content: center;
     flex-wrap: nowrap;
     margin-top: 20px;
 }
 
 .social-icon {
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1682,6 +1682,7 @@ section {
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
+    min-width: 56px;
 }
 
 .social-icon::before {
@@ -1701,8 +1702,8 @@ section {
 }
 
 .social-icon svg {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     position: relative;
     z-index: 1;
 }
@@ -1846,14 +1847,14 @@ section {
 
 .footer-social-icons {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: nowrap;
     justify-content: center;
 }
 
 .footer-social-icon {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1862,11 +1863,12 @@ section {
     border-radius: 50%;
     transition: all 0.3s ease;
     flex-shrink: 0;
+    min-width: 44px;
 }
 
 .footer-social-icon svg {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
 }
 
 .footer-social-icon:hover {
